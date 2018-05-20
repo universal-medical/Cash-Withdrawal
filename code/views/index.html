@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cash Withdrwal</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+        
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/common.js"></script>
+    </head>
+
+    <body>
+        <div class="main-div">
+            <button onclick="openTransaction()" class="view-trans-btn">View All Transactions</button>
+            <div class="sub-pages hideall" id="loaderPage">
+                <div align='center'>
+                    <img src="images/loader.gif" class="loader-image" />
+                    <br><br>
+                    <span>Please wait, while we're loading</span>
+                </div>
+            </div>
+            
+            <div class="sub-pages hideall" id="cardFormPage" style="display:none">
+                <div class="page-form">
+                    <div align="center">
+                        <h4 class="page-title">Please enter the card details</h4>
+                    </div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-lable">Card Number</div>
+                    <div class="form-grp form-field"><input type="number" class="form-input" name="cardnum" id="cardnum" /></div>
+                    <div class="clear-both"></div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-lable">Pin</div>
+                    <div class="form-grp form-field"><input type="password" class="form-input" name="cardpin" id="cardpin" /></div>
+                    <div class="clear-both"></div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-center">
+                        <span class="form-messages" style="display: none"></span>
+                        <img src="images/loader.gif" class="form-images" style="display: none" />
+                        <br />
+                        <button class="form-btns" onclick="submitCardForm()">Submit</button>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+            
+            <div class="sub-pages hideall" id="enterAmtPage" style="display:none">
+                <button class="home-btn" onclick="goHomePage()">Home</button>
+                <div class="page-form">
+                    <div align="center">
+                        <h4 class="page-title">Please enter the amount</h4>
+                        <span>Note: Amount should be multiple of 100s</span>
+                    </div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-lable">Amount</div>
+                    <div class="form-grp form-field"><input type="number" class="form-input" name="amount" id="amount" /></div>
+                    <div class="clear-both"></div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-center">
+                        <span class="form-messages" style="display: none"></span>
+                        <img src="images/loader.gif" class="form-images" style="display: none" />
+                        <br />
+                        <button class="form-btns" onclick="submitWithdrawalAmount()">Submit</button>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+            
+            <div class="sub-pages hideall" id="resultPage" style="display:none">
+                <button class="home-btn" onclick="goHomePage()">Home</button>
+                <div class="page-form">
+                    <div align="center">
+                        <h4 class="page-title">Transaction Successfull</h4>
+                    </div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-lable">Balance</div>
+                    <div class="form-grp form-field" id="balance"></div>
+                    <div class="clear-both"></div>
+                </div>
+                
+                <div class="page-form">
+                    <div class="form-grp form-lable">Notes</div>
+                    <div class="form-grp form-field" id="notes"></div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+            
+            <div class="sub-pages hideall" id="noCashPage" style="display:none">
+                <div class="page-form">
+                    <div align="center">
+                        <img src="images/no-cash.png" class="no-cash-img" />
+                        <br><br>
+                        <h4 class="page-title error-msg">No cash available for withdrawal</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Cash Withdrwal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="/js/jquery.min.js"></script>
+        
+        <style>
+            body{
+                padding: 30px;
+            }
+            .form-boxes{
+                float: left;
+                padding: 30px;
+                border: 1px solid gray;
+                margin-right: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-boxes">
+            <input type="number" id="cardnum" placeholder="enter 16 digit card number" />
+            <br><br>
+            <input type="number" id="cardpin" placeholder="enter 4 digit card pin number" />
+            <br><br>
+            <input type="number" id="balance" placeholder="enter card balance" />
+            <br><br>
+            <button onclick="submitCardDetails()">submit card details</button>
+        </div>
+        
+        <div class="form-boxes">
+            <input type="number" id="currency" placeholder="enter currency_denomination" />
+            <br><br>
+            <input type="number" id="count" placeholder="enter count of currency_denomination" />
+            <br><br>
+            <button onclick="submitCurrencyDetails()">submit card details</button>
+        </div>
+        
+        <script>
+            function submitCardDetails(){
+                var cardnum = $("#cardnum").val();
+                var cardpin = $("#cardpin").val();
+                var balance = $("#balance").val();
+                
+                $.ajax({
+                    url: 'addCardDetails',
+                    type: 'POST',
+                    data: {"cardnum": cardnum, "cardpin": cardpin, "balance": balance},
+                    success: function(res){
+                        alert('Success: '+JSON.stringify(res));
+                    },
+                    error: function(err){
+                        alert("Error: "+JSON.stringify(err));
+                    }
+                });
+            }
+            
+            function submitCurrencyDetails(){
+                var currency = $("#currency").val();
+                var count = $("#count").val();
+                
+                $.ajax({
+                    url: 'addCurrencyDetails',
+                    type: 'POST',
+                    data: {"currency": currency, "count": count},
+                    success: function(res){
+                        alert('Success: '+JSON.stringify(res));
+                    },
+                    error: function(err){
+                        alert("Error: "+JSON.stringify(err));
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
