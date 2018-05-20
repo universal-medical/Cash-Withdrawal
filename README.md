@@ -1,4 +1,4 @@
-README.mdSetup: 
+Setup: 
 	1. Change configurations in config.js
 		* server port
 		* mongodb configurations
