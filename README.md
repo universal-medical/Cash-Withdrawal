@@ -15,7 +15,7 @@
 	[ Assuming base url: http://localhost/ ]
 	* http://localhost/admin
 	
-        *Note: No validations added, please enter data as mentioned in placeholder
+        * Note: No validations added, please enter data as mentioned in placeholder
 
 ###### Requirement:
 	* Minimum number of banknotes are dispensed
